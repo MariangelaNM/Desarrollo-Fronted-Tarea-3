@@ -1,0 +1,79 @@
+body {
+    font-family: 'segoe ui light';
+    background-color: #f2f2f2;
+}
+
+i {
+    cursor: pointer;
+}
+
+#successProductAlert {
+    display: none;
+}
+
+
+/***********************************************/
+.myTextColor,
+.activeLink {
+    color: #F04E26 !important;
+}
+
+.myText {
+    font-family: 'Luckiest Guy', cursive;
+    text-transform: uppercase;
+}
+
+
+
+.dropdown-item:focus,
+.dropdown-item:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #F04E26;
+}
+
+.bg-light {
+    background-color: #f8f9fb;
+}
+
+
+/***********************************/
+#searchItem {
+    position: relative;
+}
+
+.mySearch {
+    position: absolute;
+    top: 10px;
+    right: 0;
+}
+
+/*****************************************/
+#productHeader {
+    /*background-image: url(../images/abstract.png);*/
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 450px 360px;
+}
+
+/****************contact page***********/
+.myContactAlert,
+.myContactdangerAlert {
+    display: none;
+}
+/**************RESPONSIVE***********/
+@media only screen and (max-width:767px) {
+    .caption a {
+        color: #333;
+        padding: 15px;
+        text-decoration: none;
+        transition: all .4s;
+    }
+
+    .caption a:hover {
+
+        background-color: rgba(255, 255, 255, .5);
+        border-radius: 15px;
+        color: #F04E26;
+    }
+}

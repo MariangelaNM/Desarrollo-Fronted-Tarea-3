@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <!--header section-->
+    <section id="productHeader">
+        <div class=" my-Container m-auto">
+
+
+            <!--add product section-->
+            <div class="col-md-8">
+
+                <form>
+                    <div class="form-group">
+                        <label for="productName">Product Name</label>
+                        <input onkeyup="disableBtn()" id='productName' type="text" class="form-control">
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="productText">Product Description</label>
+                        <textarea onkeyup="disableBtn()" id='productDesc' class="form-control" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="productModel">Product Model</label>
+                        <input onkeyup="disableBtn()" id='productModel' type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="productPrice">Product Price</label>
+                        <input onkeyup="disableBtn()" id='productPrice' type="text" class="form-control">
+                    </div>
+                </form>
+                <button id='productBtn' type="submit" class="btn btn-primary">Add product</button>
+            </div>
+            <!--end product section-->
+        </div>
+    </section>
+    <!--END header section-->
+    <!-- view product section-->
+    <section class="my-5">
+        <div class="container">
+            <h2 id="productHeadline">Our Products</h2>
+            <div id="searchItem" class="w-50 my-4">
+                <input type="text" placeholder="Search" class="form-control" id="mySearchInp">
+                <i class="fas fa-lg fa-search mySearch"></i>
+            </div>
+            <div class="row" id="dataRow">
+            </div>
+        </div>
+    </section>
+    <!--end of view product-->
+
+    <!--scripts-->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
