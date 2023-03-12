@@ -57,7 +57,6 @@ function disableBtn() {
 }
 
 function addProducts() {
-
     var products = {
         productName: productName.value,
         productImg: productImg.value,
@@ -117,13 +116,5 @@ function deleteItem(item) {
     localStorage.setItem('productsStorage', JSON.stringify(productContainer));
     showProducts();
 }
-mySearchInp.addEventListener('keyup', function (e) {
-    var rows = '';
-    for (var i = 0; i < productContainer.length; i++) {
-        if (productContainer[i].productName.toLowerCase().includes(e.target.value.toLowerCase())) {
-            rows += '<div class="col-lg-4 col-md-6 col-sm-12 my-2 products"><div class="product"><div class="card p-1 text-center m-auto" style="width: 18rem;"><div class="d-flex justify-content-between"><i class="fas fa-edit fa-2x" onclick="updateProduct(' + i + ')"></i><i class="fa fa-times-circle fa-2x" onclick="deleteItem(' + i + ')"></i></div><img class="img-fluid" src="images/3191.png" class="card-img-top" alt="test"><div class="card-body"><h5 class="card-title">' + productContainer[i].productName + '</h5><p class="card-text">' + productContainer[i].productDesc + '</p><a href="#" class="btn btn-primary">' + productContainer[i].productPrice + '</a></div></div></div></div>';
-        }
-    }
-    document.getElementById('dataRow').innerHTML = rows;
-});
+
 
