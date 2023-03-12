@@ -27,7 +27,7 @@ if (localStorage.getItem('productsStorage') == null) {
 disableBtn();
 
 productBtn.addEventListener('click', function () {
-    if (productBtn.innerHTML == 'add product') {
+    if (productBtn.innerHTML == 'Add product') {
         addProducts();
         showAlert();
         showProducts();
@@ -100,7 +100,7 @@ function saveUpdate() {
     productContainer[currentIndex] = products;
     localStorage.setItem('productsStorage', JSON.stringify(productContainer));
     showProducts();
-    productBtn.innerHTML = 'add product';
+    productBtn.innerHTML = 'Add product';
 }
 
 function emptyFields() {
