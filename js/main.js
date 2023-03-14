@@ -1,7 +1,19 @@
+
+document.addEventListener('DOMContentLoaded', () => {
+    const elementosCarousel = document.querySelectorAll('.carousel');
+    M.Carousel.init(elementosCarousel, {
+        duration: 150,
+        dist: -80,
+        shift: 5,
+        padding: 5,
+        numVisible: 3,
+        indicators: true,
+        noWrap: false
+    });
+});
 // Definition of the difents parameter
 var productName = document.getElementById('productName');
 var productDesc = document.getElementById('productDesc');
-var productModel = document.getElementById('productModel');
 var productPrice = document.getElementById('productPrice');
 var productBtn = document.getElementById('productBtn');
 var productImg = document.getElementById('productImg');
@@ -57,7 +69,6 @@ function addProducts() {
         productName: productName.value,
         productImg: productImg.value,
         productDesc: productDesc.value,
-        productModel: productModel.value,
         productPrice: productPrice.value
     };
     productContainer.push(products);
@@ -67,10 +78,11 @@ function addProducts() {
 
 //read list of products
 function showProducts() {
-    var rows = '';
+    var rows = '<div class="carousel center-align">';
     for (var i = 0; i < productContainer.length; i++) {
-        rows += '<div class="col-lg-4 col-md-6 col-sm-12 my-2 products"><div class="product"><div class="card p-1 text-center m-auto" style="width: 18rem;"><div class="d-flex justify-content-between"><i class="fas fa-edit fa-2x" onclick="updateProduct(' + i + ')"></i><i class="fa fa-times-circle fa-2x " onclick="deleteItem(' + i + ')"></i></div><img class="img-fluid"   src='+productContainer[i].productImg +' class="card-img-top" alt="test"><div class="card-body"><h5 class="card-title">' + productContainer[i].productName + '</h5><p class="card-text">' + productContainer[i].productDesc + '</p></div></div></div></div>';
+        rows += ' <div class="carousel-item">     <div class="card p-1  m-auto" style="width: 100%;">          <div class="d-flex justify-content-between"><i class="fas fa-edit fa-2x"onclick="updateProduct(' + i + ')"></i><i class="fa fa-times-circle fa-2x "onclick="deleteItem(' + i + ')"></i></div></div>    <h2 class="subtitulo">' + productContainer[i].productName + '</h2>           <div class="linea-division"></div>                   <p class="sabor">' + productContainer[i].productDesc + '</p><img src=' + productContainer[i].productImg + ' alt="">                      </div>        ';
     }
+    rows += '   </div>'
     document.getElementById('dataRow').innerHTML = rows;
     productContainer = JSON.parse(localStorage.getItem('productsStorage'));
     productHeadline.style.display = 'block';
@@ -82,8 +94,7 @@ function updateProduct(index) {
     productName.value = productContainer[index].productName;
     productDesc.value = productContainer[index].productDesc;
     productPrice.value = productContainer[index].productPrice;
-    productImg.value= productContainer[index].productImg;
-    productModel.value = 'sn123';
+    productImg.value = productContainer[index].productImg;
     productBtn.innerHTML = 'update product';
     currentIndex = index;
 }
@@ -93,7 +104,6 @@ function saveUpdate() {
     var products = {
         productName: productName.value,
         productDesc: productDesc.value,
-        productModel: productModel.value,
         productPrice: productPrice.value,
         productImg: productImg.value
     };
@@ -121,9 +131,8 @@ mySearchInp.addEventListener('keyup', function (e) {
     var rows = '';
     for (var i = 0; i < productContainer.length; i++) {
         if (productContainer[i].productName.toLowerCase().includes(e.target.value.toLowerCase())) {
-            rows += '<div class="col-lg-4 col-md-6 col-sm-12 my-2 products"><div class="product"><div class="card p-1 text-center m-auto" style="width: 18rem;"><div class="d-flex justify-content-between"><i class="fas fa-edit fa-2x" onclick="updateProduct(' + i + ')"></i><i class="fa fa-times-circle fa-2x" onclick="deleteItem(' + i + ')"></i></div><img class="img-fluid" "   src='+productContainer[i].productImg +' class="card-img-top" alt="test"><div class="card-body"><h5 class="card-title">' + productContainer[i].productName + '</h5><p class="card-text">' + productContainer[i].productDesc + '</p></div></div></div></div>';
+            rows += '<div class="col-lg-4 col-md-6 col-sm-12 my-2 products"><div class="product"><div class="card p-1 text-center m-auto" style="width: 18rem;"><div class="d-flex justify-content-between"><i class="fas fa-edit fa-2x" onclick="updateProduct(' + i + ')"></i><i class="fa fa-times-circle fa-2x" onclick="deleteItem(' + i + ')"></i></div><img class="img-fluid" "   src=' + productContainer[i].productImg + ' class="card-img-top" alt="test"><div class="card-body"><h5 class="card-title">' + productContainer[i].productName + '</h5><p class="card-text">' + productContainer[i].productDesc + '</p></div></div></div></div>';
         }
     }
     document.getElementById('dataRow').innerHTML = rows;
 });
-
